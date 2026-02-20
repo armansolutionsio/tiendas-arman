@@ -5,9 +5,8 @@
   "/api/auth/register/route": "app/api/auth/register/route.js",
   "/_not-found/page": "app/_not-found/page.js",
   "/products/page": "app/products/page.js",
-  "/dashboard/page": "app/dashboard/page.js",
-  "/products/create/page": "app/products/create/page.js",
-  "/auth/login/page": "app/auth/login/page.js",
   "/auth/register/page": "app/auth/register/page.js",
+  "/auth/login/page": "app/auth/login/page.js",
+  "/dashboard/page": "app/dashboard/page.js",
   "/page": "app/page.js"
 }
