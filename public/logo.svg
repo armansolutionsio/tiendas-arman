@@ -1,0 +1,20 @@
+<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" fill="none">
+  <!-- Fondo del bolsa -->
+  <path d="M40 60C40 50 48 45 58 45H142C152 45 160 50 160 60V160C160 170 152 175 142 175H58C48 175 40 170 40 160V60Z" fill="#9333ea" opacity="0.9"/>
+  
+  <!-- Asas del bolsa -->
+  <path d="M70 45C70 35 75 25 85 20C95 15 105 15 115 20C125 25 130 35 130 45" stroke="#e9d5ff" stroke-width="8" stroke-linecap="round" fill="none"/>
+  
+  <!-- Letra "A" principal -->
+  <g transform="translate(50, 70)">
+    <!-- Lado izquierdo del triángulo -->
+    <path d="M35 80L10 20" stroke="#ffffff" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+    <!-- Lado derecho del triángulo -->
+    <path d="M35 80L60 20" stroke="#ffffff" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+    <!-- Barra horizontal -->
+    <line x1="18" y1="50" x2="52" y2="50" stroke="#ffffff" stroke-width="10" stroke-linecap="round"/>
+  </g>
+  
+  <!-- Sombra -->
+  <ellipse cx="100" cy="180" rx="45" ry="8" fill="#000000" opacity="0.15"/>
+</svg>

@@ -1,0 +1,92 @@
+version: '3.8'
+
+services:
+  # PostgreSQL Database
+  postgres:
+    image: postgres:15-alpine
+    container_name: tiendas-arman-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: tiendas_arman_db
+      POSTGRES_USER: tiendas_arman_user
+      POSTGRES_PASSWORD: tiendas_arman_password_2024
+      POSTGRES_HOST_AUTH_METHOD: trust
+    ports:
+      - "5434:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./init-db:/docker-entrypoint-initdb.d
+    networks:
+      - tiendas-arman-network
+
+  # pgAdmin for database management
+  pgadmin:
+    image: dpage/pgadmin4:latest
+    container_name: tiendas-arman-pgadmin
+    restart: unless-stopped
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@tiendas-arman.com
+      PGADMIN_DEFAULT_PASSWORD: admin123
+      PGADMIN_CONFIG_SERVER_MODE: 'False'
+    ports:
+      - "5050:80"
+    volumes:
+      - pgadmin_data:/var/lib/pgadmin
+    networks:
+      - tiendas-arman-network
+    depends_on:
+      - postgres
+
+  # Next.js Application
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: tiendas-arman-app
+    restart: unless-stopped
+    environment:
+      DATABASE_URL: postgresql://tiendas_arman_user:tiendas_arman_password_2024@postgres:5432/tiendas_arman_db
+      JWT_SECRET: super-secret-jwt-key-change-in-production
+      NODE_ENV: production
+    ports:
+      - "3000:3000"
+    networks:
+      - tiendas-arman-network
+    depends_on:
+      - postgres
+    volumes:
+      - ./prisma:/app/prisma
+
+  # Development version (alternative to production app)
+  app-dev:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    container_name: tiendas-arman-app-dev
+    restart: unless-stopped
+    environment:
+      DATABASE_URL: postgresql://tiendas_arman_user:tiendas_arman_password_2024@postgres:5432/tiendas_arman_db
+      JWT_SECRET: super-secret-jwt-key-change-in-production
+      NODE_ENV: development
+    ports:
+      - "3001:3000"
+    networks:
+      - tiendas-arman-network
+    depends_on:
+      - postgres
+    volumes:
+      - .:/app
+      - /app/node_modules
+      - /app/.next
+    profiles:
+      - dev
+
+volumes:
+  postgres_data:
+    driver: local
+  pgadmin_data:
+    driver: local
+
+networks:
+  tiendas-arman-network:
+    driver: bridge

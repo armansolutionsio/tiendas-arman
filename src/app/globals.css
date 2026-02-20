@@ -1,0 +1,190 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary: 168, 85, 247;
+  --primary-dark: 126, 34, 206;
+  --foreground-rgb: 23, 23, 23;
+  --background-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 245, 245, 245;
+    --background-rgb: 23, 23, 23;
+  }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: rgb(var(--foreground-rgb));
+  background-color: rgb(var(--background-rgb));
+}
+
+/* Scrollbar personalizada */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgb(var(--primary));
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(var(--primary-dark));
+}
+
+/* Transiciones suaves */
+@layer components {
+  .transition-smooth {
+    @apply transition-all duration-300 ease-in-out;
+  }
+
+  /* Botones primarios */
+  .btn-primary {
+    @apply px-6 py-3 bg-gradient-to-r from-primary-600 to-primary-700 text-white rounded-lg font-semibold transition-smooth hover:from-primary-700 hover:to-primary-800 active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed shadow-lg hover:shadow-xl;
+  }
+
+  .btn-secondary {
+    @apply px-6 py-3 border-2 border-primary-600 text-primary-600 rounded-lg font-semibold transition-smooth hover:bg-primary-50 active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .btn-outline {
+    @apply px-6 py-3 border-2 border-gray-300 text-gray-700 rounded-lg font-semibold transition-smooth hover:border-gray-400 hover:bg-gray-50 active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .btn-danger {
+    @apply px-6 py-3 bg-red-600 text-white rounded-lg font-semibold transition-smooth hover:bg-red-700 active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .btn-small {
+    @apply px-4 py-2 text-sm;
+  }
+
+  /* Tarjetas mejoradas */
+  .card {
+    @apply bg-white rounded-2xl shadow-md transition-smooth hover:shadow-2xl border border-gray-100;
+  }
+
+  .card-hover {
+    @apply card hover:scale-105 hover:-translate-y-2;
+  }
+
+  /* Campos de entrada */
+  .input-field {
+    @apply w-full px-4 py-3 border-2 border-gray-200 rounded-lg transition-smooth focus:outline-none focus:border-primary-600 focus:ring-2 focus:ring-primary-100 text-gray-900 placeholder-gray-400;
+  }
+
+  .input-field:disabled {
+    @apply bg-gray-100 cursor-not-allowed;
+  }
+
+  /* Badges */
+  .badge {
+    @apply inline-block px-3 py-1 rounded-full text-sm font-medium bg-primary-100 text-primary-700;
+  }
+
+  .badge-success {
+    @apply badge bg-green-100 text-green-700;
+  }
+
+  .badge-warning {
+    @apply badge bg-yellow-100 text-yellow-700;
+  }
+
+  .badge-danger {
+    @apply badge bg-red-100 text-red-700;
+  }
+
+  /* Contenedores */
+  .container-base {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .section-base {
+    @apply py-20;
+  }
+
+  /* Gradientes */
+  .gradient-primary {
+    @apply bg-gradient-to-br from-primary-600 via-primary-700 to-primary-900;
+  }
+
+  .gradient-light {
+    @apply bg-gradient-to-br from-primary-50 via-white to-primary-50;
+  }
+
+  /* Textos */
+  .text-heading-1 {
+    @apply text-5xl md:text-6xl font-bold text-gray-900;
+  }
+
+  .text-heading-2 {
+    @apply text-4xl md:text-5xl font-bold text-gray-900;
+  }
+
+  .text-heading-3 {
+    @apply text-3xl md:text-4xl font-bold text-gray-900;
+  }
+
+  .text-heading-4 {
+    @apply text-2xl md:text-3xl font-bold text-gray-900;
+  }
+
+  /* Formularios */
+  .form-group {
+    @apply mb-6;
+  }
+
+  .form-label {
+    @apply block text-sm font-semibold text-gray-700 mb-2;
+  }
+
+  .form-error {
+    @apply text-sm text-red-600 mt-1;
+  }
+
+  /* Grid personalizado */
+  .grid-auto {
+    @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6;
+  }
+
+  /* Overlay */
+  .overlay {
+    @apply fixed inset-0 bg-black bg-opacity-50 transition-opacity duration-300;
+  }
+}
+
+/* Animaciones adicionales */
+@keyframes shimmer {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.animate-shimmer {
+  animation: shimmer 2s ease-in-out infinite;
+}
