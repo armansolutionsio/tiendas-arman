@@ -52,17 +52,14 @@ export default function Header() {
         <div className="flex justify-between items-center py-4">
           {/* Logo y nombre */}
           <Link href="/" className="flex items-center space-x-3 group shrink-0">
-            <div className="relative w-14 h-14 transition-smooth group-hover:scale-110">
-              <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" fill="none" className="w-full h-full">
-                <path d="M40 60C40 50 48 45 58 45H142C152 45 160 50 160 60V160C160 170 152 175 142 175H58C48 175 40 170 40 160V60Z" fill="#9333ea" opacity="0.9"/>
-                <path d="M70 45C70 35 75 25 85 20C95 15 105 15 115 20C125 25 130 35 130 45" stroke="#e9d5ff" strokeWidth="8" strokeLinecap="round" fill="none"/>
-                <g transform="translate(50, 70)">
-                  <path d="M35 80L10 20" stroke="#ffffff" strokeWidth="12" strokeLinecap="round" strokeLinejoin="round"/>
-                  <path d="M35 80L60 20" stroke="#ffffff" strokeWidth="12" strokeLinecap="round" strokeLinejoin="round"/>
-                  <line x1="18" y1="50" x2="52" y2="50" stroke="#ffffff" strokeWidth="10" strokeLinecap="round"/>
-                </g>
-                <ellipse cx="100" cy="180" rx="45" ry="8" fill="#000000" opacity="0.15"/>
-              </svg>
+            <div className="relative w-14 h-14 transition-smooth group-hover:scale-110 rounded-lg overflow-hidden">
+              <Image
+                src="/logo tiendas arman.jpeg"
+                alt="Tiendas Arman Logo"
+                fill
+                className="object-cover"
+                priority
+              />
             </div>
             <div className="hidden sm:block">
               <h1 className="text-2xl font-bold bg-gradient-to-r from-primary-600 to-primary-700 bg-clip-text text-transparent">Tiendas Arman</h1>

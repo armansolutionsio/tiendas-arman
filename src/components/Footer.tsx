@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 
 export default function Footer() {
   const currentYear = new Date().getFullYear()
@@ -10,15 +11,14 @@ export default function Footer() {
           {/* Logo y descripción */}
           <div className="lg:col-span-1">
             <div className="flex items-center space-x-3 mb-4">
-              <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" fill="none" className="w-10 h-10">
-                <path d="M40 60C40 50 48 45 58 45H142C152 45 160 50 160 60V160C160 170 152 175 142 175H58C48 175 40 170 40 160V60Z" fill="#e9d5ff" opacity="0.9"/>
-                <path d="M70 45C70 35 75 25 85 20C95 15 105 15 115 20C125 25 130 35 130 45" stroke="#faf5ff" strokeWidth="8" strokeLinecap="round" fill="none"/>
-                <g transform="translate(50, 70)">
-                  <path d="M35 80L10 20" stroke="#7e22ce" strokeWidth="12" strokeLinecap="round" strokeLinejoin="round"/>
-                  <path d="M35 80L60 20" stroke="#7e22ce" strokeWidth="12" strokeLinecap="round" strokeLinejoin="round"/>
-                  <line x1="18" y1="50" x2="52" y2="50" stroke="#7e22ce" strokeWidth="10" strokeLinecap="round"/>
-                </g>
-              </svg>
+              <div className="relative w-10 h-10 rounded-lg overflow-hidden bg-white">
+                <Image
+                  src="/logo tiendas arman.jpeg"
+                  alt="Tiendas Arman Logo"
+                  fill
+                  className="object-cover"
+                />
+              </div>
               <div>
                 <h3 className="text-lg font-bold">Tiendas Arman</h3>
                 <p className="text-xs text-primary-100">Marketplace Seguro</p>
