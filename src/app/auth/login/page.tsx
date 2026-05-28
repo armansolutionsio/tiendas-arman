@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import Link from 'next/link'
+import Image from 'next/image'
 
 export default function LoginPage() {
   const [email, setEmail] = useState('')
@@ -45,15 +46,15 @@ export default function LoginPage() {
       <div className="gradient-primary text-white flex items-center justify-center p-8 hidden lg:flex">
         <div className="max-w-md space-y-8">
           <div>
-            <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" fill="none" className="w-20 h-20 mb-6">
-              <path d="M40 60C40 50 48 45 58 45H142C152 45 160 50 160 60V160C160 170 152 175 142 175H58C48 175 40 170 40 160V60Z" fill="#faf5ff" opacity="0.9"/>
-              <path d="M70 45C70 35 75 25 85 20C95 15 105 15 115 20C125 25 130 35 130 45" stroke="#7e22ce" strokeWidth="8" strokeLinecap="round" fill="none"/>
-              <g transform="translate(50, 70)">
-                <path d="M35 80L10 20" stroke="#7e22ce" strokeWidth="12" strokeLinecap="round" strokeLinejoin="round"/>
-                <path d="M35 80L60 20" stroke="#7e22ce" strokeWidth="12" strokeLinecap="round" strokeLinejoin="round"/>
-                <line x1="18" y1="50" x2="52" y2="50" stroke="#7e22ce" strokeWidth="10" strokeLinecap="round"/>
-              </g>
-            </svg>
+            <div className="relative w-20 h-20 mb-6 rounded-xl overflow-hidden bg-white">
+              <Image
+                src="/logo tiendas arman.jpeg"
+                alt="Tiendas Arman Logo"
+                fill
+                className="object-cover"
+                priority
+              />
+            </div>
           </div>
           <div>
             <h1 className="text-5xl font-bold mb-4">Bienvenido de Vuelta</h1>
@@ -92,15 +93,14 @@ export default function LoginPage() {
         <div className="w-full max-w-md">
           <div className="lg:hidden mb-8">
             <Link href="/" className="flex items-center space-x-2 mb-8">
-              <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" fill="none" className="w-10 h-10">
-                <path d="M40 60C40 50 48 45 58 45H142C152 45 160 50 160 60V160C160 170 152 175 142 175H58C48 175 40 170 40 160V60Z" fill="#9333ea" opacity="0.9"/>
-                <path d="M70 45C70 35 75 25 85 20C95 15 105 15 115 20C125 25 130 35 130 45" stroke="#e9d5ff" strokeWidth="8" strokeLinecap="round" fill="none"/>
-                <g transform="translate(50, 70)">
-                  <path d="M35 80L10 20" stroke="#ffffff" strokeWidth="12" strokeLinecap="round" strokeLinejoin="round"/>
-                  <path d="M35 80L60 20" stroke="#ffffff" strokeWidth="12" strokeLinecap="round" strokeLinejoin="round"/>
-                  <line x1="18" y1="50" x2="52" y2="50" stroke="#ffffff" strokeWidth="10" strokeLinecap="round"/>
-                </g>
-              </svg>
+              <div className="relative w-10 h-10 rounded-lg overflow-hidden">
+                <Image
+                  src="/logo tiendas arman.jpeg"
+                  alt="Tiendas Arman Logo"
+                  fill
+                  className="object-cover"
+                />
+              </div>
               <span className="font-bold text-xl text-primary-700">Tiendas Arman</span>
             </Link>
           </div>

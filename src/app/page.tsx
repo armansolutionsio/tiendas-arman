@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 
 export default function Home() {
   return (
@@ -65,17 +66,16 @@ export default function Home() {
             <div className="flex justify-center order-1 lg:order-2">
               <div className="relative w-full max-w-md h-96">
                 <div className="absolute inset-0 bg-gradient-to-br from-primary-600 to-primary-700 rounded-3xl blur-3xl opacity-30 animate-pulse"></div>
-                <div className="relative bg-white rounded-3xl shadow-2xl p-8 flex items-center justify-center h-full">
-                  <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" fill="none" className="w-full h-full animate-float">
-                    <path d="M40 60C40 50 48 45 58 45H142C152 45 160 50 160 60V160C160 170 152 175 142 175H58C48 175 40 170 40 160V60Z" fill="#9333ea" opacity="0.9"/>
-                    <path d="M70 45C70 35 75 25 85 20C95 15 105 15 115 20C125 25 130 35 130 45" stroke="#e9d5ff" strokeWidth="8" strokeLinecap="round" fill="none"/>
-                    <g transform="translate(50, 70)">
-                      <path d="M35 80L10 20" stroke="#ffffff" strokeWidth="12" strokeLinecap="round" strokeLinejoin="round"/>
-                      <path d="M35 80L60 20" stroke="#ffffff" strokeWidth="12" strokeLinecap="round" strokeLinejoin="round"/>
-                      <line x1="18" y1="50" x2="52" y2="50" stroke="#ffffff" strokeWidth="10" strokeLinecap="round"/>
-                    </g>
-                    <ellipse cx="100" cy="180" rx="45" ry="8" fill="#000000" opacity="0.15"/>
-                  </svg>
+                <div className="relative bg-white rounded-3xl shadow-2xl p-8 flex items-center justify-center h-full overflow-hidden">
+                  <div className="relative w-full h-full animate-float">
+                    <Image
+                      src="/logo tiendas arman.jpeg"
+                      alt="Tiendas Arman Logo"
+                      fill
+                      className="object-contain"
+                      priority
+                    />
+                  </div>
                 </div>
               </div>
             </div>

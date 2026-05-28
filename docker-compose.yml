@@ -48,6 +48,9 @@ services:
       DATABASE_URL: postgresql://tiendas_arman_user:tiendas_arman_password_2024@postgres:5432/tiendas_arman_db
       JWT_SECRET: super-secret-jwt-key-change-in-production
       NODE_ENV: production
+      # IA — análisis automático de productos
+      ANTHROPIC_API_KEY: ${ANTHROPIC_API_KEY}
+      CLAUDE_MODEL: ${CLAUDE_MODEL:-claude-sonnet-4-6}
     ports:
       - "3000:3000"
     networks:
@@ -68,6 +71,8 @@ services:
       DATABASE_URL: postgresql://tiendas_arman_user:tiendas_arman_password_2024@postgres:5432/tiendas_arman_db
       JWT_SECRET: super-secret-jwt-key-change-in-production
       NODE_ENV: development
+      ANTHROPIC_API_KEY: ${ANTHROPIC_API_KEY}
+      CLAUDE_MODEL: ${CLAUDE_MODEL:-claude-sonnet-4-6}
     ports:
       - "3001:3000"
     networks:
